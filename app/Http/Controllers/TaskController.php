@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class TaskController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request): Response
     {
         $query = Task::query();
 
@@ -47,12 +49,12 @@ class TaskController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(): Response
     {
         return Inertia::render('Tasks/Create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'title' => ['required', 'string', 'max:255'],
@@ -69,14 +71,14 @@ class TaskController extends Controller
             ->with('success', 'Task created successfully.');
     }
 
-    public function edit(Task $task)
+    public function edit(Task $task): Response
     {
         return Inertia::render('Tasks/Edit', [
             'task' => $task,
         ]);
     }
 
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Task $task): RedirectResponse
     {
         $validated = $request->validate([
             'title' => ['required', 'string', 'max:255'],
@@ -93,7 +95,7 @@ class TaskController extends Controller
             ->with('success', 'Task updated successfully.');
     }
 
-    public function destroy(Task $task)
+    public function destroy(Task $task): RedirectResponse
     {
         $task->delete();
 
