@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap');
+@import 'tailwindcss';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-logo: 'Orbitron', 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+    * {
+        @apply border-gray-200 dark:border-gray-800;
+    }
+
+    body {
+        @apply bg-gray-50 text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100;
+    }
+
+    button,
+    a, select {
+        cursor: pointer;
+    }
+
+    button:disabled, select:disabled {
+        cursor: not-allowed;
+    }
+}
+
+@layer utilities {
+    .font-logo {
+        font-family: var(--font-logo);
+        letter-spacing: 0.02em;
+    }
+}
