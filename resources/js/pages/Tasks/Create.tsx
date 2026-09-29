@@ -1,20 +1,20 @@
-import AppLayout from "@/layouts/AppLayout";
-import { Link, useForm } from "@inertiajs/react";
-import type { FormEvent } from "react";
+import AppLayout from '@/layouts/AppLayout';
+import { Link, useForm } from '@inertiajs/react';
+import type { FormEvent } from 'react';
 
 export default function Create() {
     const { data, setData, post, processing, errors } = useForm({
-        title: "",
-        description: "",
-        status: "pending",
-        priority: "medium",
-        due_date: "",
+        title: '',
+        description: '',
+        status: 'pending',
+        priority: 'medium',
+        due_date: '',
     });
 
     const submit = (e: FormEvent) => {
         e.preventDefault();
 
-        post("/tasks");
+        post('/tasks');
     };
 
     return (
@@ -44,7 +44,9 @@ export default function Create() {
                         <span>Back to tasks</span>
                     </Link>
 
-                    <h1 className="mt-6 text-3xl font-bold text-gray-900 dark:text-gray-100">Create Task</h1>
+                    <h1 className="mt-6 text-3xl font-bold text-gray-900 dark:text-gray-100">
+                        Create Task
+                    </h1>
 
                     <form
                         onSubmit={submit}
@@ -59,7 +61,7 @@ export default function Create() {
                                 type="text"
                                 value={data.title}
                                 onChange={(e) =>
-                                    setData("title", e.target.value)
+                                    setData('title', e.target.value)
                                 }
                                 className="w-full rounded-lg border border-gray-300 bg-white p-3 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
                                 placeholder="Enter task title"
@@ -80,7 +82,7 @@ export default function Create() {
                             <textarea
                                 value={data.description}
                                 onChange={(e) =>
-                                    setData("description", e.target.value)
+                                    setData('description', e.target.value)
                                 }
                                 className="w-full rounded-lg border border-gray-300 bg-white p-3 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
                                 rows={5}
@@ -102,7 +104,7 @@ export default function Create() {
                             <select
                                 value={data.status}
                                 onChange={(e) =>
-                                    setData("status", e.target.value)
+                                    setData('status', e.target.value)
                                 }
                                 className="w-full appearance-none rounded-lg border border-gray-300 bg-white p-3 pr-10 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
                                 style={{
@@ -132,7 +134,7 @@ export default function Create() {
                             <select
                                 value={data.priority}
                                 onChange={(e) =>
-                                    setData("priority", e.target.value)
+                                    setData('priority', e.target.value)
                                 }
                                 className="w-full appearance-none rounded-lg border border-gray-300 bg-white p-3 pr-10 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
                                 style={{
@@ -163,9 +165,9 @@ export default function Create() {
                                 type="date"
                                 value={data.due_date}
                                 onChange={(e) =>
-                                    setData("due_date", e.target.value)
+                                    setData('due_date', e.target.value)
                                 }
-                                className="w-full rounded-lg border border-gray-300 bg-white p-3 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 [color-scheme:light] dark:[color-scheme:dark]"
+                                className="w-full rounded-lg border border-gray-300 bg-white p-3 text-gray-900 [color-scheme:light] dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:[color-scheme:dark]"
                             />
 
                             {errors.due_date && (
@@ -180,7 +182,7 @@ export default function Create() {
                             disabled={processing}
                             className="w-full rounded-lg bg-black px-5 py-3 text-white transition hover:bg-gray-800 disabled:opacity-50 dark:bg-white dark:text-gray-950 dark:hover:bg-gray-200"
                         >
-                            {processing ? "Creating..." : "Create Task"}
+                            {processing ? 'Creating...' : 'Create Task'}
                         </button>
                     </form>
                 </div>

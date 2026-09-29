@@ -1,6 +1,6 @@
-import AppLayout from "@/layouts/AppLayout";
-import { Link, useForm } from "@inertiajs/react";
-import type { FormEvent } from "react";
+import AppLayout from '@/layouts/AppLayout';
+import { Link, useForm } from '@inertiajs/react';
+import type { FormEvent } from 'react';
 
 interface Task {
     id: number;
@@ -18,19 +18,19 @@ interface Props {
 export default function Edit({ task }: Props) {
     // Format the date correctly for HTML date input (YYYY-MM-DD)
     const formatDateForInput = (dateString: string | null) => {
-        if (!dateString) return "";
+        if (!dateString) return '';
         const date = new Date(dateString);
         const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, "0");
-        const day = String(date.getDate()).padStart(2, "0");
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
     };
 
     const { data, setData, put, processing, errors } = useForm({
-        title: task.title ?? "",
-        description: task.description ?? "",
-        status: task.status ?? "pending",
-        priority: task.priority ?? "medium",
+        title: task.title ?? '',
+        description: task.description ?? '',
+        status: task.status ?? 'pending',
+        priority: task.priority ?? 'medium',
         due_date: formatDateForInput(task.due_date),
     });
 
@@ -84,7 +84,7 @@ export default function Edit({ task }: Props) {
                                 type="text"
                                 value={data.title}
                                 onChange={(e) =>
-                                    setData("title", e.target.value)
+                                    setData('title', e.target.value)
                                 }
                                 className="w-full rounded-lg border border-gray-300 bg-white p-3 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
                             />
@@ -104,7 +104,7 @@ export default function Edit({ task }: Props) {
                             <textarea
                                 value={data.description}
                                 onChange={(e) =>
-                                    setData("description", e.target.value)
+                                    setData('description', e.target.value)
                                 }
                                 className="w-full rounded-lg border border-gray-300 bg-white p-3 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
                                 rows={5}
@@ -125,14 +125,14 @@ export default function Edit({ task }: Props) {
                             <select
                                 value={data.status}
                                 onChange={(e) =>
-                                    setData("status", e.target.value)
+                                    setData('status', e.target.value)
                                 }
                                 className="w-full appearance-none rounded-lg border border-gray-300 bg-white p-3 pr-10 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
                                 style={{
                                     backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                                    backgroundPosition: "right 0.5rem center",
-                                    backgroundRepeat: "no-repeat",
-                                    backgroundSize: "1.5em 1.5em",
+                                    backgroundPosition: 'right 0.5rem center',
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: '1.5em 1.5em',
                                 }}
                             >
                                 <option value="pending">Pending</option>
@@ -155,14 +155,14 @@ export default function Edit({ task }: Props) {
                             <select
                                 value={data.priority}
                                 onChange={(e) =>
-                                    setData("priority", e.target.value)
+                                    setData('priority', e.target.value)
                                 }
                                 className="w-full appearance-none rounded-lg border border-gray-300 bg-white p-3 pr-10 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
                                 style={{
                                     backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                                    backgroundPosition: "right 0.5rem center",
-                                    backgroundRepeat: "no-repeat",
-                                    backgroundSize: "1.5em 1.5em",
+                                    backgroundPosition: 'right 0.5rem center',
+                                    backgroundRepeat: 'no-repeat',
+                                    backgroundSize: '1.5em 1.5em',
                                 }}
                             >
                                 <option value="low">Low</option>
@@ -186,9 +186,9 @@ export default function Edit({ task }: Props) {
                                 type="date"
                                 value={data.due_date}
                                 onChange={(e) =>
-                                    setData("due_date", e.target.value)
+                                    setData('due_date', e.target.value)
                                 }
-                                className="w-full rounded-lg border border-gray-300 bg-white p-3 text-gray-900 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 [color-scheme:light] dark:[color-scheme:dark]"
+                                className="w-full rounded-lg border border-gray-300 bg-white p-3 text-gray-900 [color-scheme:light] dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:[color-scheme:dark]"
                             />
 
                             {errors.due_date && (
@@ -203,7 +203,7 @@ export default function Edit({ task }: Props) {
                             disabled={processing}
                             className="w-full rounded-lg bg-black px-5 py-3 text-white transition hover:bg-gray-800 disabled:opacity-50 dark:bg-white dark:text-gray-950 dark:hover:bg-gray-200"
                         >
-                            {processing ? "Updating..." : "Update Task"}
+                            {processing ? 'Updating...' : 'Update Task'}
                         </button>
                     </form>
                 </div>

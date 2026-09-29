@@ -7,8 +7,12 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --font-logo: 'Orbitron', 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-sans:
+        'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-logo:
+        'Orbitron', 'Space Grotesk', 'Inter', ui-sans-serif, system-ui,
+        sans-serif;
 }
 
 @layer base {
@@ -21,11 +25,13 @@
     }
 
     button,
-    a, select {
+    a,
+    select {
         cursor: pointer;
     }
 
-    button:disabled, select:disabled {
+    button:disabled,
+    select:disabled {
         cursor: not-allowed;
     }
 }
