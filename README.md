@@ -17,34 +17,39 @@ A modern task management application built with Laravel 13, Inertia.js 3, and Re
 ### Local Development
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/taskflow.git
-   cd taskflow
-   ```
+
+    ```bash
+    git clone https://github.com/yourusername/taskflow.git
+    cd taskflow
+    ```
 
 2. **Install dependencies**
-   ```bash
-   composer install
-   npm install
-   ```
+
+    ```bash
+    composer install
+    npm install
+    ```
 
 3. **Setup environment**
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
+
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
 
 4. **Setup database**
-   ```bash
-   touch database/database.sqlite
-   php artisan migrate
-   ```
+
+    ```bash
+    touch database/database.sqlite
+    php artisan migrate
+    ```
 
 5. **Build assets and start server**
-   ```bash
-   npm run dev
-   php artisan serve
-   ```
+
+    ```bash
+    npm run dev
+    php artisan serve
+    ```
 
 6. **Visit** http://localhost:8000
 
@@ -127,6 +132,7 @@ This project is open-sourced software licensed under the [MIT license](https://o
 ## 🆘 Support
 
 Need help? Check out:
+
 - [Laravel Documentation](https://laravel.com/docs)
 - [Inertia.js Documentation](https://inertiajs.com/)
 - [Railway Documentation](https://docs.railway.app/)
