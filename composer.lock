@@ -7274,7 +7274,7 @@
                 "ext-mbstring": "*",
                 "ext-tokenizer": "*",
                 "ext-xml": "*",
-                "php": "^8.3.0"
+                "php": "^8.4"
             },
             "require-dev": {
                 "composer/semver": "^3.4.4",
