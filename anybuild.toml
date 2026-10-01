@@ -8,3 +8,9 @@ node = "24"
 pnpm = "10"
 phpix = "8.3"
 bash = "latest"
+
+[build]
+steps = [
+    { name = "install", commands = ["composer install --optimize-autoloader --ignore-platform-reqs --no-scripts --no-interaction", "pnpm install"] },
+    { name = "build", commands = ["pnpm run build"] }
+]
