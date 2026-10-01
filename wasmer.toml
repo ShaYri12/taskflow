@@ -1,0 +1,27 @@
+[package]
+name = "taskflow"
+version = "0.1.0"
+description = "TaskFlow Laravel Application"
+
+[[module]]
+name = "taskflow"
+source = "."
+abi = "wasi"
+
+[module.interfaces]
+wasi = "0.1.0-unstable"
+
+[[command]]
+name = "taskflow"
+module = "taskflow"
+runner = "https://webc.org/runner/wasi"
+
+[command.annotations.wasi]
+env = ["APP_ENV=production"]
+main-args = []
+
+[php]
+version = "8.4"
+
+[dependencies]
+"php/php" = "8.4.*"
