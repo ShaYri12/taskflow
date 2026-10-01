@@ -66,7 +66,7 @@ Deploy for FREE on Railway.app! See deployment guides:
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Laravel 13 (PHP 8.3)
+- **Backend**: Laravel 13 (PHP 8.4)
 - **Frontend**: React 18 with TypeScript
 - **Routing**: Inertia.js 3
 - **Styling**: Tailwind CSS
