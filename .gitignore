@@ -30,9 +30,10 @@ pnpm-debug.log
 /public/storage
 
 # Laravel Wayfinder Generated
-/resources/js/actions
-/resources/js/routes
-/resources/js/wayfinder
+# Commented out for Wasmer deployment - these need to be committed
+# /resources/js/actions
+# /resources/js/routes
+# /resources/js/wayfinder
 
 # Homestead
 Homestead.json
