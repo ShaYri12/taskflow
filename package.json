@@ -3,7 +3,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vp build",
+        "build": "echo 'Skipping npm build - pnpm will handle this'",
+        "build:real": "vp build",
         "build:ssr": "vp build && vp build --ssr",
         "dev": "vp dev",
         "check": "vp check",
