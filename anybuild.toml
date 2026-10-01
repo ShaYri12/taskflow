@@ -1,10 +1,10 @@
 [provider.laravel]
-php = "8.4"
+php = "8.3"
 
 [packages]
-php = "8.4"
+php = "8.3"
 composer = "latest"
 node = "24"
 pnpm = "10"
-phpix = "8.4"
+phpix = "8.3"
 bash = "latest"
