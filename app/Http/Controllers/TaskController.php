@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -12,9 +13,8 @@ class TaskController extends Controller
 {
     public function index(Request $request): Response
     {
-        $query = Task::query();
+        $query = $request->user()->tasks();
 
-        // Search
         if ($request->filled('search')) {
             $query->where(function ($q) use ($request) {
                 $q->where('title', 'like', '%'.$request->search.'%')
@@ -22,29 +22,28 @@ class TaskController extends Controller
             });
         }
 
-        // Filter by status
         if ($request->filled('status')) {
             $query->where('status', $request->status);
         }
 
-        // Filter by priority
         if ($request->filled('priority')) {
             $query->where('priority', $request->priority);
         }
 
         $tasks = $query->latest()->get();
 
-        // Calculate statistics
+        $baseQuery = $request->user()->tasks();
+
         $stats = [
-            'total' => Task::count(),
-            'pending' => Task::where('status', 'pending')->count(),
-            'in_progress' => Task::where('status', 'in_progress')->count(),
-            'completed' => Task::where('status', 'completed')->count(),
+            'total'       => (clone $baseQuery)->count(),
+            'pending'     => (clone $baseQuery)->where('status', 'pending')->count(),
+            'in_progress' => (clone $baseQuery)->where('status', 'in_progress')->count(),
+            'completed'   => (clone $baseQuery)->where('status', 'completed')->count(),
         ];
 
         return Inertia::render('Tasks/Index', [
-            'tasks' => $tasks,
-            'stats' => $stats,
+            'tasks'   => $tasks,
+            'stats'   => $stats,
             'filters' => $request->only(['search', 'status', 'priority']),
         ]);
     }
@@ -57,14 +56,14 @@ class TaskController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
+            'title'       => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'status' => ['required', 'in:pending,in_progress,completed'],
-            'priority' => ['required', 'in:low,medium,high'],
-            'due_date' => ['nullable', 'date'],
+            'status'      => ['required', 'in:pending,in_progress,completed'],
+            'priority'    => ['required', 'in:low,medium,high'],
+            'due_date'    => ['nullable', 'date'],
         ]);
 
-        Task::create($validated);
+        $request->user()->tasks()->create($validated);
 
         return redirect()
             ->route('tasks.index')
@@ -73,6 +72,8 @@ class TaskController extends Controller
 
     public function edit(Task $task): Response
     {
+        Gate::authorize('update', $task);
+
         return Inertia::render('Tasks/Edit', [
             'task' => $task,
         ]);
@@ -80,12 +81,14 @@ class TaskController extends Controller
 
     public function update(Request $request, Task $task): RedirectResponse
     {
+        Gate::authorize('update', $task);
+
         $validated = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
+            'title'       => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'status' => ['required', 'in:pending,in_progress,completed'],
-            'priority' => ['required', 'in:low,medium,high'],
-            'due_date' => ['nullable', 'date'],
+            'status'      => ['required', 'in:pending,in_progress,completed'],
+            'priority'    => ['required', 'in:low,medium,high'],
+            'due_date'    => ['nullable', 'date'],
         ]);
 
         $task->update($validated);
@@ -97,6 +100,8 @@ class TaskController extends Controller
 
     public function destroy(Task $task): RedirectResponse
     {
+        Gate::authorize('delete', $task);
+
         $task->delete();
 
         return redirect()

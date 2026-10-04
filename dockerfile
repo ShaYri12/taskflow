@@ -24,19 +24,17 @@ WORKDIR /var/www
 # Copy application files
 COPY . .
 
-# Install PHP dependencies
+# Install PHP dependencies (no dev, optimized)
 RUN composer install --no-dev --optimize-autoloader
 
-# Install Node dependencies and build frontend
+# Install Node dependencies and build frontend assets
 RUN npm ci
 RUN npm run build
 
-# Set permissions for Laravel
+# Set permissions for Laravel storage and cache
 RUN chmod -R 775 storage bootstrap/cache
-
-# Generate application key
-RUN php artisan key:generate --force
 
 EXPOSE $PORT
 
-CMD php artisan serve --host 0.0.0.0 --port ${PORT:-10000}
+# Run migrations then start the server
+CMD php artisan migrate --force && php artisan serve --host 0.0.0.0 --port ${PORT:-10000}
