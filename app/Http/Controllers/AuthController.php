@@ -38,9 +38,9 @@ class AuthController extends Controller
     public function register(RegisterRequest $request): RedirectResponse
     {
         $user = User::create([
-            'name'     => $request->name,
-            'email'    => $request->email,
-            'password' => $request->password, // hashed via User model cast
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
         ]);
 
         Auth::login($user);

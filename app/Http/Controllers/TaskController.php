@@ -35,15 +35,15 @@ class TaskController extends Controller
         $baseQuery = $request->user()->tasks();
 
         $stats = [
-            'total'       => (clone $baseQuery)->count(),
-            'pending'     => (clone $baseQuery)->where('status', 'pending')->count(),
+            'total' => (clone $baseQuery)->count(),
+            'pending' => (clone $baseQuery)->where('status', 'pending')->count(),
             'in_progress' => (clone $baseQuery)->where('status', 'in_progress')->count(),
-            'completed'   => (clone $baseQuery)->where('status', 'completed')->count(),
+            'completed' => (clone $baseQuery)->where('status', 'completed')->count(),
         ];
 
         return Inertia::render('Tasks/Index', [
-            'tasks'   => $tasks,
-            'stats'   => $stats,
+            'tasks' => $tasks,
+            'stats' => $stats,
             'filters' => $request->only(['search', 'status', 'priority']),
         ]);
     }
@@ -56,11 +56,11 @@ class TaskController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'title'       => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'status'      => ['required', 'in:pending,in_progress,completed'],
-            'priority'    => ['required', 'in:low,medium,high'],
-            'due_date'    => ['nullable', 'date'],
+            'status' => ['required', 'in:pending,in_progress,completed'],
+            'priority' => ['required', 'in:low,medium,high'],
+            'due_date' => ['nullable', 'date'],
         ]);
 
         $request->user()->tasks()->create($validated);
@@ -84,11 +84,11 @@ class TaskController extends Controller
         Gate::authorize('update', $task);
 
         $validated = $request->validate([
-            'title'       => ['required', 'string', 'max:255'],
+            'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'status'      => ['required', 'in:pending,in_progress,completed'],
-            'priority'    => ['required', 'in:low,medium,high'],
-            'due_date'    => ['nullable', 'date'],
+            'status' => ['required', 'in:pending,in_progress,completed'],
+            'priority' => ['required', 'in:low,medium,high'],
+            'due_date' => ['nullable', 'date'],
         ]);
 
         $task->update($validated);
