@@ -1,5 +1,4 @@
 import { createInertiaApp } from '@inertiajs/react';
-import { createRoot } from 'react-dom/client';
 
 const appName = import.meta.env.VITE_APP_NAME || 'TaskFlow';
 
@@ -9,12 +8,7 @@ void createInertiaApp({
     title: (title) => (title ? `${title} - ${appName}` : appName),
     resolve: (name) => {
         const page = pages[`./pages/${name}.tsx`];
-        return page().then(
-            (module) => (module as { default: unknown }).default as never,
-        );
-    },
-    setup({ el, App, props }) {
-        createRoot(el).render(<App {...props} />);
+        return page().then((module) => (module as { default: unknown }).default as never);
     },
     progress: {
         color: '#4B5563',
