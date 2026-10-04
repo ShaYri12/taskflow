@@ -8,7 +8,9 @@ void createInertiaApp({
     title: (title) => (title ? `${title} - ${appName}` : appName),
     resolve: (name) => {
         const page = pages[`./pages/${name}.tsx`];
-        return page().then((module) => (module as { default: unknown }).default as never);
+        return page().then(
+            (module) => (module as { default: unknown }).default as never,
+        );
     },
     progress: {
         color: '#4B5563',
