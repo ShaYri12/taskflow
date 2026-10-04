@@ -48,7 +48,10 @@ export default function AppLayout({ children }: Props) {
             <header className="sticky top-0 z-50 border-b border-gray-200/70 bg-white/80 backdrop-blur-xl dark:border-gray-800/70 dark:bg-gray-950/80">
                 <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
                     {/* Brand */}
-                    <Link href="/tasks" className="flex items-center gap-2 sm:gap-3">
+                    <Link
+                        href="/tasks"
+                        className="flex items-center gap-2 sm:gap-3"
+                    >
                         <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-gray-900 to-gray-700 text-lg font-bold text-white shadow-md dark:from-white dark:to-gray-200 dark:text-gray-950">
                             T
                         </div>
@@ -63,7 +66,7 @@ export default function AppLayout({ children }: Props) {
                                 {/* New Task */}
                                 <Link
                                     href="/tasks/create"
-                                    className="flex items-center sm:gap-2 gap-1 rounded-xl bg-gray-950 px-3 sm:px-4 py-2.5 text-sm font-medium text-white transition hover:bg-gray-800 dark:bg-white dark:text-gray-950 dark:hover:bg-gray-200"
+                                    className="flex items-center gap-1 rounded-xl bg-gray-950 px-3 py-2.5 text-sm font-medium text-white transition hover:bg-gray-800 sm:gap-2 sm:px-4 dark:bg-white dark:text-gray-950 dark:hover:bg-gray-200"
                                 >
                                     <svg
                                         className="h-4 w-4"

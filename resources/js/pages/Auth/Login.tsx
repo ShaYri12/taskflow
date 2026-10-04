@@ -55,7 +55,7 @@ export default function Login() {
                                 onChange={(e) =>
                                     setData('email', e.target.value)
                                 }
-                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
+                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
                                 placeholder="you@example.com"
                             />
                             {errors.email && (
@@ -81,7 +81,7 @@ export default function Login() {
                                 onChange={(e) =>
                                     setData('password', e.target.value)
                                 }
-                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
+                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
                                 placeholder="••••••••"
                             />
                             {errors.password && (

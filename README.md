@@ -20,15 +20,15 @@ A modern task management application built with **Laravel 13**, **Inertia.js v3*
 
 ## 🛠 Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Backend | PHP 8.3+, Laravel 13 |
-| Frontend bridge | Inertia.js v3 |
-| Frontend | React 19, TypeScript |
-| Styling | Tailwind CSS v4 |
-| Database | MySQL |
-| Build tool | Vite (via vite-plus) |
-| Typed routes | Laravel Wayfinder |
+| Layer           | Technology           |
+| --------------- | -------------------- |
+| Backend         | PHP 8.3+, Laravel 13 |
+| Frontend bridge | Inertia.js v3        |
+| Frontend        | React 19, TypeScript |
+| Styling         | Tailwind CSS v4      |
+| Database        | MySQL                |
+| Build tool      | Vite (via vite-plus) |
+| Typed routes    | Laravel Wayfinder    |
 
 ---
 
@@ -126,23 +126,23 @@ routes/
 
 ## 🔑 Routes
 
-| Method | URL | Description |
-|---|---|---|
-| `GET` | `/login` | Login page |
-| `POST` | `/login` | Authenticate user |
-| `GET` | `/register` | Register page |
-| `POST` | `/register` | Create account |
-| `POST` | `/logout` | Sign out |
-| `GET` | `/tasks` | Task list (auth) |
-| `GET` | `/tasks/create` | New task form (auth) |
-| `POST` | `/tasks` | Store task (auth) |
-| `GET` | `/tasks/{task}/edit` | Edit task form (auth) |
-| `PUT` | `/tasks/{task}` | Update task (auth) |
-| `DELETE` | `/tasks/{task}` | Delete task (auth) |
-| `GET` | `/profile` | Account settings (auth) |
-| `PATCH` | `/profile/info` | Update name/email (auth) |
-| `PATCH` | `/profile/password` | Change password (auth) |
-| `DELETE` | `/profile` | Delete account (auth) |
+| Method   | URL                  | Description              |
+| -------- | -------------------- | ------------------------ |
+| `GET`    | `/login`             | Login page               |
+| `POST`   | `/login`             | Authenticate user        |
+| `GET`    | `/register`          | Register page            |
+| `POST`   | `/register`          | Create account           |
+| `POST`   | `/logout`            | Sign out                 |
+| `GET`    | `/tasks`             | Task list (auth)         |
+| `GET`    | `/tasks/create`      | New task form (auth)     |
+| `POST`   | `/tasks`             | Store task (auth)        |
+| `GET`    | `/tasks/{task}/edit` | Edit task form (auth)    |
+| `PUT`    | `/tasks/{task}`      | Update task (auth)       |
+| `DELETE` | `/tasks/{task}`      | Delete task (auth)       |
+| `GET`    | `/profile`           | Account settings (auth)  |
+| `PATCH`  | `/profile/info`      | Update name/email (auth) |
+| `PATCH`  | `/profile/password`  | Change password (auth)   |
+| `DELETE` | `/profile`           | Delete account (auth)    |
 
 ---
 

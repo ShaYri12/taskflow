@@ -56,7 +56,7 @@ export default function Register() {
                                 onChange={(e) =>
                                     setData('name', e.target.value)
                                 }
-                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
+                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
                                 placeholder="Jane Smith"
                             />
                             {errors.name && (
@@ -82,7 +82,7 @@ export default function Register() {
                                 onChange={(e) =>
                                     setData('email', e.target.value)
                                 }
-                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
+                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
                                 placeholder="you@example.com"
                             />
                             {errors.email && (
@@ -108,7 +108,7 @@ export default function Register() {
                                 onChange={(e) =>
                                     setData('password', e.target.value)
                                 }
-                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
+                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
                                 placeholder="Min. 8 characters"
                             />
                             {errors.password && (
@@ -137,7 +137,7 @@ export default function Register() {
                                         e.target.value,
                                     )
                                 }
-                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-900/10 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
+                                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-900 focus:ring-2 focus:ring-gray-900/10 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-500 dark:focus:border-gray-400 dark:focus:ring-gray-400/10"
                                 placeholder="Repeat your password"
                             />
                             {errors.password_confirmation && (
@@ -153,7 +153,9 @@ export default function Register() {
                             disabled={processing}
                             className="w-full rounded-xl bg-gray-900 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-gray-700 disabled:opacity-60 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
                         >
-                            {processing ? 'Creating account…' : 'Create account'}
+                            {processing
+                                ? 'Creating account…'
+                                : 'Create account'}
                         </button>
                     </form>
                 </div>
